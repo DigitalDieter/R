@@ -1,4 +1,6 @@
-# R
+![R-logo](img/R_logo.png)
+
+
 
 #### Installation Dependencies
 
