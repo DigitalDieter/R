@@ -1,1 +1,91 @@
 # R
+
+#### Installation Dependencies
+
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+sudo apt update
+sudo apt-get -y install libzmq3-dev libcurl4-openssl-dev libssl-dev jupyter-core jupyter-client
+```
+#### Installation of r-base
+```bash
+sudo apt install -y r-base
+```
+
+Start R as root to keep installations
+```bash
+sudo -i R
+```
+
+Install Packages
+```bash
+install.packages('IRkernel')
+install.packages('tensorflow')
+install.packages('keras')
+install.packages("tfestimators")
+
+install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
+install.packages(c('vcd', 'readr', 'R.utils', 'randomForest'))
+
+```
+
+
+Setup R Kernel Systemwide
+```bash
+IRkernel::installspec(user = FALSE)
+```
+
+
+#### To create an executable script copy & paste the following command into the commandline:
+
+```bash
+dd of=hello.R<< EOF
+sayHello <- function(){
+   print('hello world')
+}
+
+sayHello()
+EOF
+chmod +x hello.R
+```
+#### For running the script execute the following command:
+
+```bash
+Rscript hello.R
+```
+
+
+```bash
+dd of=download_fashion_MNIST.R<< EOF
+download.file("http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz",
+              "datesets/fashion-train-images-idx3-ubyte.gz")
+download.file("http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz",
+              "datesets(fashion-train-labels-idx1-ubyte.gz")
+download.file("http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz",
+              "datesets/fashion-t10k-images-idx3-ubyte.gz")
+download.file("http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz",
+              "datesets/fashion-t10k-labels-idx1-ubyte.gz")
+EOF
+chmod +x download_fashion_MNIST.R
+```
+
+
+
+
+
+
+#### Weights only
+
+
+
+save in HDF5 format
+```bash
+model %>% save_model_weights_hdf5('my_model.h5')
+```
+Restore the model's state,
+this requires a model with the same architecture
+
+```bash
+model %>% load_model_weights_hdf5('my_model.h5')
+```
