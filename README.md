@@ -1,8 +1,9 @@
 ![R-logo](img/R_logo.png)
 
 
+## Installation / Dependencies
 
-#### Installation Dependencies
+You need to install the following packages as Installation dependencies:
 
 ```bash
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -19,7 +20,10 @@ Start R as root to keep installations
 ```bash
 sudo -i R
 ```
-
+To use R inside your jupyter notebook you have to install the following package inside the R console:
+```bash
+install.packages('IRkernel')
+```
 Install Packages
 ```bash
 install.packages('IRkernel')
