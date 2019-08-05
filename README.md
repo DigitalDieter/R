@@ -72,22 +72,3 @@ EOF
 chmod +x download_fashion_MNIST.R
 ```
 
-
-
-
-
-
-#### Weights only
-
-
-
-save in HDF5 format
-```bash
-model %>% save_model_weights_hdf5('my_model.h5')
-```
-Restore the model's state,
-this requires a model with the same architecture
-
-```bash
-model %>% load_model_weights_hdf5('my_model.h5')
-```
